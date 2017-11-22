@@ -1,0 +1,36 @@
+﻿<div class="row">
+    <div class="col-12">
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <h4>Search Hamper by Category </h4>
+        <select class="form-control" type="dropdown" [(ngModel)]="catName">
+            <option *ngFor="let c of categories">{{c.name}}</option>
+        </select>
+        <br />
+        <button class="btn btn-primary" (click)="displayHamper()">Show Hampers</button>
+        <br />
+    </div>
+</div>
+<div class="row">
+    <div *ngFor="let h of hampers" class="col-sm-3 pt-2">
+        <div class="card" style="width: 15rem;">
+            <img class="card-img-top pt-2  pl-1 pr-1 max-width: 75%;" src="{{'http://localhost:4222/' + h.imageUrl}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{h.hamperName }}</h5>
+                <p class="card-text">{{h.description | slice:0:40 }}...</p>
+                <a href="#" class="btn btn-warning">
+                    More..
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                </a>
+                {{h.hamperPrice | currency:'AUD':true}}
+            </div>
+        </div>
+    </div>  
+</div>
+
+
+
+
